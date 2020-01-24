@@ -11,11 +11,12 @@ app.get('/apps', (req, res) => {
   const { sort = '', genres = '' } = req.query;  
   let results = apps;
 
+
   if (sort) {
     if (!['Rating', 'App'].includes(sort)) {
       return res
         .status(400)
-        .send('Sort must be one of rating or app, you terrible person');
+        .send('Sort must be one of Rating or App, or the server gets mad');
     }
   }
 
@@ -46,5 +47,7 @@ app.get('/apps', (req, res) => {
 
 
 app.listen(8000, () => {
-  console.log('Server started on PORT 8000');
+  console.log('Server sharted on PORT 8000');
 });
+
+module.exports = app;
